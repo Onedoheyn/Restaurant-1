@@ -2,85 +2,90 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.hansung.android.restaurant.MainActivity">
-    <TextView
-        android:orientation="horizontal"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40pt"
-        android:gravity="center"
-        android:background="@color/colorbackground"
-        android:text="맛집 이름"
-        android:textSize="50dp"
-        />
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/MainName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/black"
+            android:hint="@string/Restaurantname"
+            android:textSize="30sp" />
+
+    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55pt"
+        android:layout_height="wrap_content"
         android:background="@android:color/holo_green_light"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            />
+            android:id="@+id/MainIamge"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:padding="5sp"
+            android:scaleType="centerCrop" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/MainAddress"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="주      소"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:hint="@string/Restaurantaddress"
+                android:textSize="20sp"/>
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
 
 
                 <TextView
-
-                    android:layout_width="match_parent"
+                    android:id="@+id/MainPhone"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"
-
-
-                    android:text="전화     번호"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/colorAccent" />
+                    android:gravity="center_vertical"
+                    android:hint="@string/Restaurantphone"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
 
                 <ImageButton
                     android:id="@+id/call_Button1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/phonebtn" />
-
+                    android:src="@drawable/ic_phone_black_24dp" />
             </LinearLayout>
 
 
             <TextView
+                android:id="@+id/MainOpen"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="영업    시간"
-
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:layout_height="wrap_content"
+                android:hint="@string/Restaurantopen"
+                android:gravity="center_vertical"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -88,33 +93,26 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="20pt"
-        android:background="#FFFF00"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_orange_light">
 
-        >
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="맛집    메뉴"
-            android:textSize="20dp"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/RestaurantMenu"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="20sp"
+            android:padding="5dp" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ListView
+        android:id="@+id/listview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="wrap_content">
+    </ListView>
 
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
-    </LinearLayout>
 
 </LinearLayout>
