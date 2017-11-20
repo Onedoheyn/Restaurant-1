@@ -107,8 +107,8 @@ public class RestaurantInsert extends AppCompatActivity {
 //===================EditText에 입력한 정보를 데이터에 저장하는 메소드==========
 
     private void insertRecord(){
-        //인터넷 참조 mPhotoFile에 저장된 값을 string으로 변환해서 restaurantlmage에 저장
-        String restaurantImage = String.format("%s", mPhotoFile);
+        //getAbsolutePath()를 이용해서 restaurantImage에 mPhotoFile의 절대 경로 위치를 반환
+        String restaurantImage = mPhotoFile.getAbsolutePath();
         EditText restaurantname = (EditText)findViewById(R.id.edit_name);
         EditText restaurantadress = (EditText)findViewById(R.id.edit_address);
         EditText restaurantphone = (EditText)findViewById(R.id.edit_phone);

@@ -49,7 +49,7 @@
                 android:id="@+id/MainAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:hint="@string/Restaurantaddress"
                 android:textSize="20sp"/>
 
@@ -65,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:hint="@string/Restaurantphone"
                     android:textColor="@android:color/white"
                     android:textSize="20sp" />
@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/Restaurantopen"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:textSize="20sp" />
 
         </LinearLayout>
