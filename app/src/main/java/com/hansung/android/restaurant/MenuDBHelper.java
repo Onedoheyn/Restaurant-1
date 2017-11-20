@@ -14,41 +14,41 @@ import android.util.Log;
 public class MenuDBHelper extends SQLiteOpenHelper {
 
     public MenuDBHelper(Context context) {
-        super(context, UserContract.DB_NAME, null, UserContract.DATEBASE_VERSION);
+        super(context, UserMenu.DB_NAME, null, UserMenu.DATEBASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(UserContract.Restaurant.CREATE_TABLE2);
+        sqLiteDatabase.execSQL(UserMenu.RestaurantMenu.CREATE_TABLE2);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL(UserContract.Restaurant.CREATE_TABLE2);
+        sqLiteDatabase.execSQL(UserMenu.RestaurantMenu.CREATE_TABLE2);
         onCreate(sqLiteDatabase);
     }
 
     public long insertRestaurantMenuMethod(String Menu_image, String Menu_name, String Menu_price, String Menu_report, String Menu_star) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(UserContract.Restaurant.Menu_image, Menu_image);
-        values.put(UserContract.Restaurant.Menu_name, Menu_name);
-        values.put(UserContract.Restaurant.Menu_price, Menu_price);
-        values.put(UserContract.Restaurant.Menu_report, Menu_report);
-        values.put(UserContract.Restaurant.Menu_star, Menu_star);
+        values.put(UserMenu.RestaurantMenu.Menu_image, Menu_image);
+        values.put(UserMenu.RestaurantMenu.Menu_name, Menu_name);
+        values.put(UserMenu.RestaurantMenu.Menu_price, Menu_price);
+        values.put(UserMenu.RestaurantMenu.Menu_report, Menu_report);
+        values.put(UserMenu.RestaurantMenu.Menu_star, Menu_star);
 
-        return db.insert(UserContract.Restaurant.TABLE_NAME,null,values);
+        return db.insert(UserMenu.RestaurantMenu.TABLE_NAME,null,values);
     }
 
     public Cursor getAllRestaurantMenuMethod() {
         SQLiteDatabase db = getReadableDatabase();
-        return db.query(UserContract.Restaurant.TABLE_NAME,null,null,null,null,null,null);
+        return db.query(UserMenu.RestaurantMenu.TABLE_NAME,null,null,null,null,null,null);
     }
 
     public void deleteRestaurantMenuSQL(){
         SQLiteDatabase db = getReadableDatabase();
 
-        db.execSQL("DELETE FROM "+ UserContract.Restaurant.TABLE_NAME);
+        db.execSQL("DELETE FROM "+ UserMenu.RestaurantMenu.TABLE_NAME);
     }
 
 }

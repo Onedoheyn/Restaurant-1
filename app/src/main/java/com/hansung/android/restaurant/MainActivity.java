@@ -110,9 +110,9 @@ public class MainActivity extends AppCompatActivity {
 
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(getApplicationContext(),
                R.layout.item, Menu, new String[]{
-                UserContract.Restaurant.Menu_image,
-                UserContract.Restaurant.Menu_name,
-                UserContract.Restaurant.Menu_price},
+                UserMenu.RestaurantMenu.Menu_image,
+                UserMenu.RestaurantMenu.Menu_name,
+                UserMenu.RestaurantMenu.Menu_price},
                 new int[]{R.id.iconItem, R.id.textItem1, R.id.textItem2 },0 );
 
         ListView Lv = (ListView)findViewById(R.id.listview);
