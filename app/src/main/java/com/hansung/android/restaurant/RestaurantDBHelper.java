@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 
 public class RestaurantDBHelper extends SQLiteOpenHelper {
@@ -42,19 +43,11 @@ public class RestaurantDBHelper extends SQLiteOpenHelper {
         return db.query(UserContract.Restaurant.Table_name,null,null,null,null,null,null);
     }
 
-    public long deleteRestaurantMethod(String _id) {
-        SQLiteDatabase db = getWritableDatabase();
-
-        String whereClause = UserContract.Restaurant._ID +" = ?";
-        String[] whereArgs ={_id};
-        return db.delete(UserContract.Restaurant.Table_name, whereClause, whereArgs);
-    }
 
     public void deleteRestaurantSQL(){
         SQLiteDatabase db = getReadableDatabase();
 
          db.execSQL("DELETE FROM "+ UserContract.Restaurant.Table_name);
     }
-
 
 }

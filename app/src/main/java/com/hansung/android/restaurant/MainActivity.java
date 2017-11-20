@@ -15,9 +15,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +30,11 @@ import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RestaurantDBHelper mRestaurantDBHelper = new RestaurantDBHelper(this);
+    private RestaurantDBHelper mRestaurantDBHelper =
+            new RestaurantDBHelper(this);
+
+    private MenuDBHelper mMenuDBHelper =
+            new MenuDBHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //mRestaurantDBHelper.deleteRestaurantSQL();
+        //mMenuDBHelper.deleteRestaurantMenuSQL();
         final Cursor Restaurant = mRestaurantDBHelper.getAllRestaurantMethod();
 
 
@@ -52,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(tel_intent);
             }
         });
+
+        ViewAllMenu();
+
 
     }
 
@@ -92,7 +105,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void ViewAllMenu(){
+        Cursor Menu = mMenuDBHelper.getAllRestaurantMenuMethod();
 
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(getApplicationContext(),
+               R.layout.item, Menu, new String[]{
+                UserContract.Restaurant.Menu_image,
+                UserContract.Restaurant.Menu_name,
+                UserContract.Restaurant.Menu_price},
+                new int[]{R.id.iconItem, R.id.textItem1, R.id.textItem2 },0 );
+
+        ListView Lv = (ListView)findViewById(R.id.listview);
+
+        Lv.setAdapter(adapter);
+
+    }
 
 
 }
